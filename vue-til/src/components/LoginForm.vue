@@ -52,7 +52,9 @@ export default {
           username: this.username,
           password: this.password,
         });
-        this.logMessage = `${data.user.username} 님이 로그인 되었습니다`;
+        // this.logMessage = `${data.user.username} 님이 로그인 되었습니다`;
+        this.$store.commit('setUsername', data.user.username);
+        this.$router.push({ path: 'main' });
       } catch (error) {
         // console.log(error.response.data);
         this.logMessage = error.response.data;
