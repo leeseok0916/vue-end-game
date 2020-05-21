@@ -53,6 +53,8 @@ export default {
           password: this.password,
         });
         // this.logMessage = `${data.user.username} 님이 로그인 되었습니다`;
+        // console.log(data.token);
+        this.$store.commit('setToken', data.token);
         this.$store.commit('setUsername', data.user.username);
         this.$router.push({ path: 'main' });
       } catch (error) {

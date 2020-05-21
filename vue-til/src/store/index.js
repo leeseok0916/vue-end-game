@@ -6,21 +6,21 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     username: '',
+    token: '',
   },
   mutations: {
     setUsername(state, username) {
       state.username = username;
     },
+    setToken(state, token) {
+      state.token = token;
+    },
   },
   getters: {
     getUsername(state) {
-      console.log(state.username);
-
       return state.username;
     },
     isUserLogin(state) {
-      console.log(state.username);
-
       return state.username ? true : false;
     },
   },
