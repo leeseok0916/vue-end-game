@@ -23,4 +23,9 @@ function fetchPosts() {
   return instance.get('posts');
 }
 
-export { registerUser, loginUser, fetchPosts };
+// 게시물을 한개 생성하는 API
+const createPost = postData => {
+  return instance.post('posts', postData);
+};
+
+export { registerUser, loginUser, fetchPosts, createPost };
