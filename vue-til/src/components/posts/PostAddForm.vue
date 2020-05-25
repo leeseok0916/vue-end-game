@@ -48,8 +48,8 @@ export default {
           contents: this.contents,
         };
 
-        const response = await this.$store.dispatch('CREATE_POST', postData);
-        console.log(response);
+        await this.$store.dispatch('CREATE_POST', postData);
+        this.$router.push('/main');
       } catch (error) {
         this.logMessage = error.response.data.message;
       }

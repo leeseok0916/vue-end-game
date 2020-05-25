@@ -11,4 +11,8 @@ const createPost = postData => {
   return posts.post('/', postData);
 };
 
-export { fetchPosts, createPost };
+const deletePost = postId => {
+  return posts.delete(postId);
+};
+
+export { fetchPosts, createPost, deletePost };
