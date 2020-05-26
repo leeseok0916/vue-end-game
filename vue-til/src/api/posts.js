@@ -6,13 +6,22 @@ function fetchPosts() {
   return posts.get('/');
 }
 
+// 특정 학습 노트 데이터를 조회하는 API
+const fetchPost = postId => {
+  return posts.get(postId);
+};
+
 // 학습 노트 데이터를 생성하는 API
 const createPost = postData => {
   return posts.post('/', postData);
+};
+
+const editPost = (postId, postData) => {
+  return posts.put(postId, postData);
 };
 
 const deletePost = postId => {
   return posts.delete(postId);
 };
 
-export { fetchPosts, createPost, deletePost };
+export { fetchPosts, fetchPost, createPost, deletePost, editPost };
