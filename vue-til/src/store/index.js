@@ -20,8 +20,17 @@ export default new Vuex.Store({
     setUsername(state, username) {
       state.username = username;
     },
+    clearUsername(state) {
+      console.log('clear username');
+
+      state.username = '';
+    },
     setToken(state, token) {
       state.token = token;
+    },
+    clearToken(state) {
+      console.log('clear token');
+      state.token = '';
     },
   },
   getters: {

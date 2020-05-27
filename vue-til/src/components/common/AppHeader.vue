@@ -1,7 +1,7 @@
 <template>
   <header>
     <div>
-      <router-link to="/" class="logo">
+      <router-link :to="logoLink" class="logo">
         TIL
         <span v-if="isUserLogin">by {{ getUsername }}</span>
       </router-link>
@@ -24,6 +24,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { deleteCookie } from '@/utils/cookies';
 
 export default {
   computed: {
@@ -34,10 +35,19 @@ export default {
     // getUsername() {
     //   return this.$store.getters.getUsername;
     // },
+    logoLink() {
+      return this.isUserLogin ? '/main' : 'login';
+    },
   },
   methods: {
+    // ...mapMutations(['clearUsername', 'clearToken']),
     logoutUser() {
-      this.$store.commit('setUsername', '');
+      deleteCookie('til_auth');
+      deleteCookie('til_user');
+      this.$store.commit('clearUsername');
+      this.$store.commit('clearToken');
+      // this.clearUsername();
+      // this.clearToken();
       this.$router.push('/login');
     },
   },
